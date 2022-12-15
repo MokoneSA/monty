@@ -1,7 +1,7 @@
 #include "monty.h"
 /**
  * monty_div - Divides the second value from the top of
- * 	a stack_t linked list by the top value.
+ * a stack_t linked list by the top value.
  * @stack: A pointer to the top mode node of a stack_t linked list.
  * @line_number: The current working line number of a Monty bytecodes file.
  *

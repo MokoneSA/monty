@@ -9,7 +9,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp, *new;
 	int i;
-
+	
 	new = malloc(sizeof(stack_t));
 	if (new == NULL)
 	{
@@ -21,8 +21,7 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		set_op_tok_error(no_int_error(line_number));
 		return;
 	}
-
-	for(i = 0; op_toks[1][i]; i++)
+	for (i = 0; op_toks[1][i]; i++)
 	{
 		if (op_toks[1][i] == '-' && i == 0)
 			continue;
@@ -33,14 +32,13 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		}
 	}
 	new->n = atoi(op_toks[1]);
-
 	if (check_mode(*stack) == STACK)
 	{
 		tmp = (*stack)->next;
 		new->prev = *stack;
 		new->next = tmp;
-	       if (tmp)
-	       		tmp->prev = new;
+		if (tmp)
+			tmp->prev = new;
 		(*stack)->next = new;
 	}
 	else
@@ -48,8 +46,6 @@ void monty_push(stack_t **stack, unsigned int line_number)
 		tmp = *stack;
 		while (tmp->next)
 			tmp = tmp->next;
-		new->prev = tmp;
-		new->next = NULL;
-		tmp->next = new;
-	}	
+		new->prev = tmp; new->next = NULL; tmp->next = new;
+	}
 }
